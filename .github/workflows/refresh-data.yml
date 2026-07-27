@@ -1,0 +1,48 @@
+# refresh-data.yml — weekly auto-rebuild of the distribution hub.
+#
+# Every Monday 09:00 UTC (and on demand): fetches the live mechanics-lien
+# dataset from the apex app, rebuilds the 51 state pages + SEO artifacts,
+# commits any changes, and pushes. Vercel Git integration auto-deploys the
+# new commit → the hub is always synced with the app's legal review.
+name: Refresh lien-data + rebuild
+
+on:
+  schedule:
+    - cron: "0 9 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Fetch upstream dataset
+        run: |
+          curl -fsSL https://voicelogpro.com/lien-law-deadlines/data.json \
+            -o data/lien-deadlines.source.json
+          echo "fetched $(wc -c < data/lien-deadlines.source.json) bytes"
+
+      - name: Rebuild hub
+        run: python3 build.py
+
+      - name: Commit & push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/ dist/
+          if git diff --cached --quiet; then
+            echo "no changes — dataset unchanged."
+          else
+            UPDATED=$(python3 -c "import json;print(json.load(open('data/lien-deadlines.source.json'))['updatedAt'])")
+            git commit -m "chore(data): refresh lien dataset (upstream updated ${UPDATED})"
+            git push
+            echo "pushed — Vercel auto-deploy will pick up the new commit."
+          fi

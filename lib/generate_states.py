@@ -427,7 +427,12 @@ def hub_page():
         }, ensure_ascii=False)]))
 
 
-for rec in RECORDS:
-    state_page(rec)
-hub_page()
-print(f"✓ {len(RECORDS)} state pages + 1 hub → dist/site/lien-law-deadlines/")
+def main():
+    for rec in RECORDS:
+        state_page(rec)
+    hub_page()
+    print(f"✓ {len(RECORDS)} state pages + 1 hub → dist/site/lien-law-deadlines/")
+
+
+if __name__ == "__main__":
+    main()
