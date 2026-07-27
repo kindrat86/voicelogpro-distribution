@@ -1,9 +1,10 @@
 # refresh-data.yml — weekly auto-rebuild of the distribution hub.
 #
 # Every Monday 09:00 UTC (and on demand): fetches the live mechanics-lien
-# dataset from the apex app, rebuilds the 51 state pages + SEO artifacts,
-# commits any changes, and pushes. Vercel Git integration auto-deploys the
-# new commit → the hub is always synced with the app's legal review.
+# dataset from the apex app, rebuilds all 3,303 pages + SEO artifacts,
+# commits any changes, pushes, and pings IndexNow. Vercel Git integration
+# auto-deploys the new commit → the hub is always synced with the app's
+# legal review, and search engines are notified immediately.
 name: Refresh lien-data + rebuild
 
 on:
@@ -46,3 +47,14 @@ jobs:
             git push
             echo "pushed — Vercel auto-deploy will pick up the new commit."
           fi
+
+      - name: Ping IndexNow (Bing + Yandex)
+        run: |
+          PAYLOAD=$(cat dist/site/indexnow-urls.json)
+          URLS=$(python3 -c "import json,sys;print(len(json.load(sys.stdin)['urlList']))" <<< "$PAYLOAD")
+          echo "Submitting $URLS URLs…"
+          curl -s -X POST "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json" -d "$PAYLOAD" -w "  Bing: %{http_code}\n" || true
+          curl -s -X POST "https://yandex.com/indexnow" \
+            -H "Content-Type: application/json" -d "$PAYLOAD" -w "  Yandex: %{http_code}\n" || true
+          echo "IndexNow ping complete"

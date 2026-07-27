@@ -31,7 +31,29 @@ echo "Deploying to /tmp/$PROJECT ..."
 rm -rf "/tmp/$PROJECT"
 mkdir -p "/tmp/$PROJECT/site"
 cp -r dist/site/* "/tmp/$PROJECT/site/"
-cp vercel.json "/tmp/$PROJECT/"
+# Write a deploy-local vercel.json so outputDirectory points at the right place.
+cat > "/tmp/$PROJECT/vercel.json" <<'VCJSON'
+{
+  "outputDirectory": "site",
+  "cleanUrls": true,
+  "trailingSlash": true,
+  "headers": [
+    { "source": "/(.*)", "headers": [
+      { "key": "X-Content-Type-Options", "value": "nosniff" },
+      { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+      { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=(), payment=()" }
+    ]},
+    { "source": "/og/(.*).svg", "headers": [
+      { "key": "Content-Type", "value": "image/svg+xml" },
+      { "key": "Cache-Control", "value": "public, max-age=86400, s-maxage=604800" }
+    ]},
+    { "source": "/data/(.*).json", "headers": [
+      { "key": "Content-Type", "value": "application/json" },
+      { "key": "Cache-Control", "value": "public, max-age=3600" }
+    ]}
+  ]
+}
+VCJSON
 cd "/tmp/$PROJECT"
 
 echo "→ Ensuring Vercel project exists…"
