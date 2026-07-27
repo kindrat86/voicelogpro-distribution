@@ -1,5 +1,5 @@
-# Generated output — rebuild with `python3 build.py`
-dist/
+# Explicitly commit dist/ — it's the deployable artifact that Vercel serves.
+# The GitHub Action rebuilds it on a schedule; Vercel auto-deploys on push.
 data/cache/
 .indexnow-key
 

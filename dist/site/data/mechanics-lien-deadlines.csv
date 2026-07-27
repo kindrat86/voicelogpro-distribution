@@ -1,0 +1,52 @@
+state,slug,preliminary_notice,lien_filing,enforcement,statute,source_url
+Alabama,alabama,N/A,,90 days,,
+Alaska,alaska,60 days from first furnishing,30 days,,,
+Arizona,arizona,20 days from first furnishing,,,A.R.S. § 33-981 et seq.,https://www.azleg.gov/arsDetail/?title=33
+Arkansas,arkansas,N/A,1 year+,,,
+California,california,20 days from first furnishing,90 days,90 days,,
+Colorado,colorado,5 business days for mechanic's lien,,,,
+Connecticut,connecticut,N/A,6 months,18 months,Conn. Gen. Stat. § 49-33 et seq.,https://www.cga.ct.gov/current/pub/chap_847.htm
+Delaware,delaware,60 days from first furnishing,,,,
+Florida,florida,45 days from first furnishing,90 days,1 year,Fla. Stat. ch. 713,https://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0700-0799/0713/0713.html
+Georgia,georgia,N/A,90 days,90 days,,
+Hawaii,hawaii,45 days from first furnishing,,,,
+Idaho,idaho,N/A,,,,
+Illinois,illinois,90 days from last furnishing,4 months,6 months,,
+Indiana,indiana,60 days from first furnishing,,,,
+Iowa,iowa,10 days before lien filing,,,,
+Kansas,kansas,N/A,1 year+,2 years,K.S.A. § 60-1101 et seq.,https://www.ksrevisor.org/statutes/chapters/ch60/060_011_0001.html
+Kentucky,kentucky,N/A,1 year+,2 years,,
+Louisiana,louisiana,30 days from registration,,,,
+Maine,maine,N/A,1 year+,,10 M.R.S. § 3251 et seq.,https://legislature.maine.gov/statutes/10/title10ch603sec0.html
+Maryland,maryland,120 days from last furnishing,,,,
+Massachusetts,massachusetts,N/A,6 months,6 months,,
+Michigan,michigan,N/A,6 months,6 months,,
+Minnesota,minnesota,10 days before lien filing,,1 year,Minn. Stat. ch. 514,https://www.revisor.mn.gov/statutes/cite/514
+Mississippi,mississippi,N/A,,,,
+Missouri,missouri,5 months from last furnishing,4 months,2 years,Mo. Rev. Stat. ch. 429,https://revisor.mo.gov/main/OneChapter.aspx?chapter=429
+Montana,montana,N/A,,,Mont. Code § 71-3-521 et seq.,https://archive.legmt.gov/bills/mca/title_0710/chapter_0030/part_0050/sections_index.html
+Nebraska,nebraska,10 days before lien filing,1 year+,18 months,,
+Nevada,nevada,30 days from first furnishing,90 days,,,
+New Hampshire,new-hampshire,N/A,,,,
+New Jersey,new-jersey,By lien filing date,1 year+,6 months,,
+New Mexico,new-mexico,N/A,,,,
+New York,new-york,N/A,8 months,2 years,N.Y. Lien Law art. 2,https://www.nysenate.gov/legislation/laws/LIE/A2
+North Carolina,north-carolina,30 days from first furnishing,90 days,1 year,,
+North Dakota,north-dakota,N/A,,,,
+Ohio,ohio,21 days from first furnishing,90 days,1 year,,
+Oklahoma,oklahoma,N/A,90 days,,,
+Oregon,oregon,8 days from first furnishing,30 days after written demand,,,
+Pennsylvania,pennsylvania,90 days from last furnishing,6 months,1 year,,
+Rhode Island,rhode-island,N/A,,,,
+South Carolina,south-carolina,30 days from first furnishing,90 days,,S.C. Code § 29-5-10 et seq.,https://www.scstatehouse.gov/code/t29c005.php
+South Dakota,south-dakota,N/A,,,,
+Tennessee,tennessee,60 days from last furnishing,,,,
+Texas,texas,15th of 3rd month,15th of 4th month,2 years,Tex. Prop. Code ch. 53,https://statutes.capitol.texas.gov/Docs/PR/htm/PR.53.htm
+Utah,utah,20 days from first furnishing,90 days,,,
+Vermont,vermont,N/A,1 year+,,9 V.S.A. § 1921 et seq.,https://legislature.vermont.gov/statutes/chapter/09/051
+Virginia,virginia,30 days from first furnishing,90 days,,Va. Code § 43-1 et seq.,https://law.lis.virginia.gov/vacodefull/title43/chapter1/
+Washington,washington,10 days from first furnishing,30/60 days,,RCW ch. 60.04,https://app.leg.wa.gov/RCW/default.aspx?cite=60.04
+Washington DC,washington-dc,45 days from first furnishing,,,,
+West Virginia,west-virginia,N/A,90 days,,,
+Wisconsin,wisconsin,60 days from first furnishing,90 days,1 year,,
+Wyoming,wyoming,N/A,,,,
