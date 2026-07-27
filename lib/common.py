@@ -17,7 +17,7 @@ APP_BETA = f"{APP}/crew-plan"
 # BASE = where THIS distribution hub is hosted. Canonical + og:url MUST point
 # here, not at the app, or Google sees a canonical mismatch. Override with
 # VOICELOGPRO_BASE_URL for local/preview deploys (see ship.sh).
-BASE = os.environ.get("VOICELOGPRO_BASE_URL", "https://lienes.voicelogpro.com").rstrip("/")
+BASE = os.environ.get("VOICELOGPRO_BASE_URL", "https://voicelogpro-guide.vercel.app").rstrip("/")
 SITE = BASE
 BRAND = "VoiceLogPro"
 
