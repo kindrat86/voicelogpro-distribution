@@ -8,8 +8,11 @@ import datetime
 
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(HERE, "lib"))
+sys.path.insert(0, os.path.join(HERE, "data"))
 from common import page, write, APP, APP_CALC, APP_BETA, BRAND, SITE  # noqa: E402
 from generate_states import RECORDS, UPDATED  # noqa: E402
+from counties import COUNTIES  # noqa: E402
+from lien_waivers import STATUTORY_FORM_STATES, NONSTAT_STATE_RULE  # noqa: E402
 
 OUT = os.path.join(HERE, "dist", "site")
 
@@ -114,6 +117,28 @@ your daily report on site, and it becomes a court-ready PDF.</p>
     <a class="btn ghost" href="{APP_CALC}">Lien deadline calculator</a>
   </div>
 </div>
+
+<h2>Browse the full knowledge base</h2>
+<div class="grid three">
+  <a class="card" href="/lien-law-deadlines/"><h3>State lien deadlines</h3>
+    <p class="meta">{len(RECORDS)} states + DC · preliminary notice, filing, enforcement</p>
+    <div class="tail">Browse {len(RECORDS)} state guides →</div></a>
+  <a class="card" href="/counties/"><h3>County recorder finder</h3>
+    <p class="meta">{len(COUNTIES):,} counties · which office records liens, filing fee</p>
+    <div class="tail">Find your county →</div></a>
+  <a class="card" href="/lien-waivers/"><h3>Lien waiver rules</h3>
+    <p class="meta">{len(RECORDS)} states · statutory forms, traps to avoid</p>
+    <div class="tail">View your state's waivers →</div></a>
+  <a class="card" href="/embed/"><h3>Embeddable widget</h3>
+    <p class="meta">One script tag · free · dofollow backlink</p>
+    <div class="tail">Get the widget →</div></a>
+  <a class="card" href="https://github.com/kindrat86/us-mechanics-lien-deadlines"><h3>Open dataset repo</h3>
+    <p class="meta">JSON / CSV / JSONL · CC BY 4.0 · daily-updated</p>
+    <div class="tail">Star on GitHub →</div></a>
+  <a class="card" href="{APP_CALC}"><h3>Lien deadline calculator</h3>
+    <p class="meta">Last day on site + state → hard dates</p>
+    <div class="tail">Calculate deadlines →</div></a>
+</div>
 """
 
 home_html = page(
@@ -203,50 +228,96 @@ llms = f"""# VoiceLogPro Lien Guide — llms.txt
 ## Key pages
 - [Home]({SITE}/): Mechanics lien deadlines by state (2026) — open data
 - [All states]({SITE}/lien-law-deadlines/): Full 51-jurisdiction matrix
+- [County recorder finder]({SITE}/counties/): {len(COUNTIES):,} US county recorder offices
+- [Lien waivers by state]({SITE}/lien-waivers/): Statutory forms and traps
 - [Embed widget]({SITE}/embed/): Free embeddable lien-deadline widget
+
+## State lien deadlines
 """
 for r in RECORDS:
-    llms += (f"- [{r['state']}]({SITE}/lien-law-deadlines/{r['slug']}/): "
-             f"Filing {r['lienFiling']['value'] or '—'} · "
-             f"Enforcement {r['enforcement']['value'] or '—'}\n")
+    llms += (f"- [{r['state']} deadlines]({SITE}/lien-law-deadlines/{r['slug']}/): "
+            f"Filing {r['lienFiling']['value'] or '—'} · "
+            f"Enforcement {r['enforcement']['value'] or '—'}\n")
+llms += "\n## Lien waivers\n"
+for r in RECORDS:
+    wdata = STATUTORY_FORM_STATES.get(r["state"], NONSTAT_STATE_RULE)
+    llms += (f"- [{r['state']} waivers]({SITE}/lien-waivers/{r['slug']}/): "
+            f"{wdata['rule'][:68]}\n")
+# county list: just the hub + state hubs (full 3,145 would be too long for llms)
+llms += f"\n## County recorders (state hubs — full {len(COUNTIES):,} county pages under each)\n"
+llms += f"- [All counties]({SITE}/counties/): {len(set(c['state'] for c in COUNTIES))} state hubs\n"
+for state_name in sorted(set(c["state"] for c in COUNTIES)):
+    ss = [c for c in COUNTIES if c["state"] == state_name][0]["state_slug"]
+    nc = len([c for c in COUNTIES if c["state"] == state_name])
+    llms += f"- [{state_name} counties]({SITE}/counties/{ss}/): {nc} offices\n"
 write(os.path.join(OUT, "llms.txt"), llms)
 
-# ---- sitemaps ---------------------------------------------------------------
-state_urls = [f"{SITE}/lien-law-deadlines/{r['slug']}/" for r in RECORDS]
-all_urls = [f"{SITE}/", f"{SITE}/lien-law-deadlines/", f"{SITE}/embed/"] + state_urls
+# ---- sitemaps (per-axis for GSC monitoring) ----------------------------------
 today = datetime.date.today().isoformat()
-entries = "".join(
-    f"  <url><loc>{u}</loc><lastmod>{today}</lastmod>"
-    f"<changefreq>weekly</changefreq></url>\n" for u in all_urls)
-sitemap = f"""<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-{entries}</urlset>"""
-write(os.path.join(OUT, "sitemap.xml"), sitemap)
 
-# sitemap index (for GSC + reference)
-index = f"""<?xml version="1.0" encoding="UTF-8"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <sitemap><loc>{SITE}/sitemap.xml</loc><lastmod>{today}</lastmod></sitemap>
-</sitemapindex>"""
+def write_sitemap(name, urls):
+    body = "".join(
+        f"  <url><loc>{u}</loc><lastmod>{today}</lastmod>"
+        f"<changefreq>weekly</changefreq><priority>{pr}</priority></url>\n"
+        for u, pr in urls)
+    xml = ('<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        + body + "</urlset>\n")
+    write(os.path.join(OUT, name), xml)
+    return name
+
+# per-axis sitemaps
+sections = []
+sections.append(write_sitemap("state-sitemap.xml", [
+    (f"{SITE}/lien-law-deadlines/", "1.0"),
+    *[(f"{SITE}/lien-law-deadlines/{r['slug']}/", "0.9") for r in RECORDS],
+    ]))
+    # county pages: group by state, dedupe state hubs (one clean sitemap)
+county_state_hubs = sorted(set((c["state_slug"], c["state"]) for c in COUNTIES))
+county_urls = (
+    [(f"{SITE}/counties/", "0.8")] +
+    [(f"{SITE}/counties/{ss}/", "0.7") for ss, _sn in county_state_hubs] +
+    [(f"{SITE}/counties/{c['state_slug']}/{c['slug']}/", "0.5") for c in COUNTIES]
+)
+sections.append(write_sitemap("county-sitemap.xml", county_urls))
+sections.append(write_sitemap("waiver-sitemap.xml", [
+    (f"{SITE}/lien-waivers/", "0.8"),
+    *[(f"{SITE}/lien-waivers/{r['slug']}/", "0.7") for r in RECORDS],
+]))
+
+# root sitemap — home + embed
+root = ('<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        f'  <url><loc>{SITE}/</loc><lastmod>{today}</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>\n'
+        f'  <url><loc>{SITE}/embed/</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>\n'
+        '</urlset>\n')
+write(os.path.join(OUT, "sitemap.xml"), root)
+
+# sitemap index — points at all per-axis sitemaps
+index = ('<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
+for s in ["/sitemap.xml"] + [f"/{ss}" for ss in sorted(sections)]:
+    index += f'  <sitemap><loc>{SITE}{s}</loc><lastmod>{today}</lastmod></sitemap>\n'
+index += '</sitemapindex>\n'
 write(os.path.join(OUT, "sitemap-index.xml"), index)
 
 # ---- RSS feed ---------------------------------------------------------------
 items = "".join(
-    f"    <item><title>{r['state']} mechanics lien deadlines (2026)</title>"
-    f"<link>{SITE}/lien-law-deadlines/{r['slug']}/</link>"
-    f"<guid>{SITE}/lien-law-deadlines/{r['slug']}/</guid>"
-    f"<description>Preliminary notice {r['preliminaryNotice']['value'] or '—'}, "
-    f"filing {r['lienFiling']['value'] or '—'}, enforcement "
-    f"{r['enforcement']['value'] or '—'}.</description></item>\n" for r in RECORDS)
+f"    <item><title>{r['state']} mechanics lien deadlines (2026)</title>"
+f"<link>{SITE}/lien-law-deadlines/{r['slug']}/</link>"
+f"<guid>{SITE}/lien-law-deadlines/{r['slug']}/</guid>"
+f"<description>Preliminary notice {r['preliminaryNotice']['value'] or '—'}, "
+f"filing {r['lienFiling']['value'] or '—'}, enforcement "
+f"{r['enforcement']['value'] or '—'}.</description></item>\n" for r in RECORDS)
 rss = f"""<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0"><channel>
-  <title>VoiceLogPro — Mechanics Lien Deadlines</title>
-  <link>{SITE}/</link>
-  <description>Open mechanics-lien deadlines for all 50 US states + DC. CC BY 4.0.</description>
-  <lastBuildDate>{today}</lastBuildDate>
+<title>VoiceLogPro — Mechanics Lien Deadlines</title>
+<link>{SITE}/</link>
+<description>Open mechanics-lien deadlines for all 50 US states + DC. CC BY 4.0.</description>
+<lastBuildDate>{today}</lastBuildDate>
 {items}
 </channel></rss>"""
 write(os.path.join(OUT, "feed.xml"), rss)
 
-print(f"✓ homepage + sitemaps + robots + llms.txt + RSS + favicon + open-data copies")
-print(f"  total URLs: {len(all_urls)}")
+print(f"✓ homepage + sitemaps ({len(sections) + 1} sections) + robots + llms.txt + RSS + favicon + open-data copies")
+print(f"  total pages: ~{len(RECORDS) * 2 + len(COUNTIES) + 5:,}")

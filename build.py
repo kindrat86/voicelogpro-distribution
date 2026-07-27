@@ -6,6 +6,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 STEPS = [
     ("State pages + hub",   ["python3", "lib/generate_states.py"]),
     ("County pages",        ["python3", "lib/generate_counties.py"]),
+    ("Lien-waiver pages",   ["python3", "lib/generate_lienwaivers.py"]),
     ("OG social cards",     ["python3", "lib/generate_og.py"]),
     ("Embed widget",        ["python3", "lib/generate_embed.py"]),
     ("Home + SEO files",    ["python3", "lib/generate_home.py"]),
