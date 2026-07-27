@@ -1,0 +1,21 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "VoiceLogPro Lien Deadline Calculator",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "description": "Free mechanics lien deadline calculator — enter your last day on site and state, get exact preliminary notice, filing, and enforcement deadline dates backed by a statute-cited 50-state dataset (CC BY 4.0).",
+  "url": "https://voicelogpro.com/free/lien-deadline-calculator",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "VoiceLogPro",
+    "url": "https://voicelogpro.com"
+  },
+  "featureList": "Calculates preliminary notice deadline, lien filing deadline, and enforcement deadline for all 50 US states + DC. Statute-cited. Free to use.",
+  "comment": "Add to the lien deadline calculator page to signal Google that it's a free web tool. Also add FAQPage schema with top calculator-related questions."
+}

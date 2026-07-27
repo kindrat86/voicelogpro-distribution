@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "VoiceLogPro",
+      "item": "https://voicelogpro.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Lien Law Deadlines",
+      "item": "https://voicelogpro.com/lien-law-deadlines"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "STATE_NAME",
+      "item": "https://voicelogpro.com/lien-law-deadlines/STATE_SLUG"
+    }
+  ],
+  "comment": "Add to every sub-page for breadcrumb rich results. Replace STATE_NAME and STATE_SLUG. Also add this to /alternatives-to/, /for/, /templates/, /glossary/ pages with a 3-level hierarchy: Home > Section > Page."
+}

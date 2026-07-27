@@ -1,0 +1,47 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the preliminary notice deadline for a mechanics lien in STATE?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PRELIMINARY_NOTICE_RULE. PRELIMINARY_NOTICE_NOTES. This is general information, not legal advice. Verify with a construction attorney licensed in STATE."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the lien filing deadline in STATE?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "LIEN_FILING_RULE. LIEN_FILING_NOTES. This is general information, not legal advice. Verify with a construction attorney licensed in STATE."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long do you have to enforce (foreclose) a mechanics lien in STATE?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ENFORCEMENT_RULE. ENFORCEMENT_NOTES. This is general information, not legal advice. Verify with a construction attorney licensed in STATE."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where can I find the STATE mechanics lien statute?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The governing statute is STATUTE_CITATION. You can find the full text at STATUTE_SOURCE_URL. This is general information, not legal advice. Always verify with the current version of the statute and a STATE construction attorney."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What project types affect lien rights in STATE?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PROJECT_TYPE_NOTES. Residential, commercial, and public projects often carry different deadlines and notice requirements. This is general information, not legal advice."
+      }
+    }
+  ],
+  "comment": "Paste this block into the <head> of every /lien-law-deadlines/{state} page on the live voicelogpro.com Next.js site. Replace STATE, PRELIMINARY_NOTICE_RULE, etc. with page-specific values. Each block below is ready to paste — just fill the template variables."
+}

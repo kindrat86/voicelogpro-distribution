@@ -7,6 +7,7 @@ STEPS = [
     ("State pages + hub",   ["python3", "lib/generate_states.py"]),
     ("County pages",        ["python3", "lib/generate_counties.py"]),
     ("Lien-waiver pages",   ["python3", "lib/generate_lienwaivers.py"]),
+    ("Templates",           ["python3", "lib/generate_templates.py"]),
     ("OG social cards",     ["python3", "lib/generate_og.py"]),
     ("Embed widget",        ["python3", "lib/generate_embed.py"]),
     ("Home + SEO files",    ["python3", "lib/generate_home.py"]),

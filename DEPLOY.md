@@ -41,16 +41,20 @@ A standalone repo that is *just* the clean dataset — the thing every construct
 
 Same isolated-subdomain pattern as `carshake-guide` / `sanctionsai-distribution`: content lives where it's cited (canonical → hub), CTAs point at the apex app.
 
-**What it builds (119 files):**
+**What it builds (3,303 pages, 119+ files):**
 
 | Surface | Count | Example query it wins |
 |---|---|---|
 | State lien pages | 51 | "mechanics lien deadlines Texas" |
+| County recorder pages | 3,197 | "file a mechanics lien in Harris County TX" |
+| Lien-waiver pages | 52 | "Texas lien waiver rules subcontractors" |
 | All-states hub | 1 | "mechanics lien deadlines by state" |
+| All-counties hub | 1 | "where to file a mechanics lien by county" |
+| All-waivers hub | 1 | "lien waiver rules by state" |
 | Embed widget + demo | 2 | (link-earning — see below) |
 | Open data (JSON/CSV/JSONL) | 3 | "mechanics lien dataset" |
 | OG social cards | 53 | (per-state, informative in preview) |
-| SEO files | 9 | sitemap, sitemap-index, robots, llms.txt, RSS, favicon, IndexNow key+payload |
+| SEO files | 9 | 4 sitemaps + sitemap-index + robots + llms.txt + RSS + favicon + IndexNow |
 
 Each state page ships with:
 - **3 JSON-LD blocks** — `Dataset` + `FAQPage` + `BreadcrumbList` (rich-result eligible)
@@ -60,9 +64,20 @@ Each state page ships with:
 - Embed snippet generator → **the backlink mechanism**: third parties paste one `<script>` tag, get a live state lien card, and link to the canonical source
 - CTA → `voicelogpro.com/lien-law-deadlines/<state>` (the apex app)
 
+Each county page has:
+- County recorder office type (Clerk, Register of Deeds, etc.)
+- Estimated recording-fee range
+- Cross-reference to the state's lien deadline
+- `FAQPage` + `BreadcrumbList` JSON-LD
+- CTA → the apex lien calculator
+
 **AI-search opted-in:** `robots.txt` allows GPTBot, ClaudeBot, PerplexityBot, Google-Extended, OAI-SearchBot; `llms.txt` documents the dataset for LLM extraction; every page has `Dataset` schema so AI engines treat it as citable data.
 
-**IndexNow:** Bing + Yandex pinged (both 202 ✓) for all 54 URLs at deploy.
+**Self-maintaining CI pipeline:**
+- `kindrat86/voicelogpro-distribution` has a Vercel Git integration — pushes to `main` = auto-deploy to `voicelogpro-guide.vercel.app`
+- `.github/workflows/refresh-data.yml` runs weekly (Monday 09:00 UTC) + on demand
+- The Action: fetches the live lien dataset from `voicelogpro.com` → rebuilds `dist/` → commits changes → pushes → Vercel auto-deploys
+- Both repo and hub rebuild from `voicelogpro.com/lien-law-deadlines/data.json` — one source of truth
 
 ---
 
@@ -78,14 +93,20 @@ Each state page ships with:
 
 ## What's left (the human-touch part)
 
-These need a human-voiced account or outbound access; I prepped the assets but can't publish autonomously.
-
 ### 1. ONE DNS record (unlocks the custom domain)
-Point `lienes.voicelogpro.com` at Vercel, then re-run `./ship.sh`. It auto-detects the resolution and switches all canonicals/OG URLs from `*.vercel.app` to `lienes.voicelogpro.com`. Get the CNAME/A target from the Vercel project → Settings → Domains.
+The domain `lienes.voicelogpro.com` is already added to the Vercel project and pending DNS. Add this Cloudflare A record to make it live:
+
+```
+Type:  A
+Name:  lienes
+Value: 76.76.21.21
+```
+
+Once DNS propagates (~5 min on Cloudflare), run `./ship.sh` — it auto-detects the resolution and switches all canonicals, OG URLs, and sitemap references from `voicelogpro-guide.vercel.app` to `lienes.voicelogpro.com`. Vercel will issue an SSL cert automatically.
 
 ### 2. Google Search Console
-- Add both `voicelogpro-guide.vercel.app` (now) and `lienes.voicelogpro.com` (after DNS)
-- Submit `https://<hub>/sitemap.xml`
+- Add `voicelogpro-guide.vercel.app` (now) and `lienes.voicelogpro.com` (after DNS)
+- Submit `https://<hub>/sitemap-index.xml` — it references 4 sitemaps (root, state, county, waiver) covering all 3,303 pages
 - Optional: set `GSC_VERIFICATION` env var before `./ship.sh` to inject the verification meta tag
 
 ### 3. Listicle / community launches (highest-ROI outreach)
@@ -120,8 +141,11 @@ Both rebuild from `voicelogpro.com/lien-law-deadlines/data.json`, so they stay i
 
 - **Open-data repo:** https://github.com/kindrat86/us-mechanics-lien-deadlines
 - **Distribution hub:** https://voicelogpro-guide.vercel.app
-- **Hub sitemap:** https://voicelogpro-guide.vercel.app/sitemap.xml
+- **Distribution kit repo:** https://github.com/kindrat86/voicelogpro-distribution
+- **Hub sitemap index:** https://voicelogpro-guide.vercel.app/sitemap-index.xml
 - **Hub llms.txt:** https://voicelogpro-guide.vercel.app/llms.txt
 - **Embed widget demo:** https://voicelogpro-guide.vercel.app/embed/
 - **Sample state page:** https://voicelogpro-guide.vercel.app/lien-law-deadlines/texas/
+- **Sample county page:** https://voicelogpro-guide.vercel.app/counties/texas/harris-county/
+- **Sample waiver page:** https://voicelogpro-guide.vercel.app/lien-waivers/texas/
 - **Raw dataset (citable):** https://raw.githubusercontent.com/kindrat86/us-mechanics-lien-deadlines/main/data/mechanics-lien-deadlines.json
