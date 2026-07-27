@@ -50,11 +50,21 @@ jobs:
 
       - name: Ping IndexNow (Bing + Yandex)
         run: |
-          PAYLOAD=$(cat dist/site/indexnow-urls.json)
-          URLS=$(python3 -c "import json,sys;print(len(json.load(sys.stdin)['urlList']))" <<< "$PAYLOAD")
-          echo "Submitting $URLS URLs…"
-          curl -s -X POST "https://api.indexnow.org/indexnow" \
-            -H "Content-Type: application/json" -d "$PAYLOAD" -w "  Bing: %{http_code}\n" || true
-          curl -s -X POST "https://yandex.com/indexnow" \
-            -H "Content-Type: application/json" -d "$PAYLOAD" -w "  Yandex: %{http_code}\n" || true
-          echo "IndexNow ping complete"
+          python3 - <<'INDEXNOW_PY'
+          import json, urllib.request
+          with open("dist/site/indexnow-urls.json") as f:
+              p = json.load(f)
+          n = len(p["urlList"])
+          print(f"Submitting {n} URLs for host {p['host']}…")
+          for engine, url in [("Bing",   "https://api.indexnow.org/indexnow"),
+                               ("Yandex", "https://yandex.com/indexnow")]:
+              try:
+                  req = urllib.request.Request(url,
+                      data=json.dumps(p).encode(),
+                      headers={"Content-Type": "application/json"})
+                  r = urllib.request.urlopen(req, timeout=30)
+                  print(f"  {engine}: {r.status}")
+              except Exception as e:
+                  print(f"  {engine}: {e}")
+          print("IndexNow ping complete")
+          INDEXNOW_PY
