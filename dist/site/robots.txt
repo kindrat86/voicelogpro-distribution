@@ -1,7 +1,7 @@
 User-Agent: *
 Allow: /
 
-Sitemap: https://voicelogpro-guide.vercel.app/sitemap.xml
+Sitemap: https://lienes.voicelogpro.com/sitemap.xml
 
 # AI crawlers explicitly allowed — this is an open-data hub meant to be cited.
 User-Agent: GPTBot
