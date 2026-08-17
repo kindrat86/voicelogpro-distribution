@@ -1,52 +1,52 @@
 state,slug,preliminary_notice,lien_filing,enforcement,statute,source_url
-Alabama,alabama,N/A,,90 days,,
-Alaska,alaska,60 days from first furnishing,30 days,,,
-Arizona,arizona,20 days from first furnishing,,,A.R.S. § 33-981 et seq.,https://www.azleg.gov/arsDetail/?title=33
-Arkansas,arkansas,N/A,1 year+,,,
-California,california,20 days from first furnishing,90 days,90 days,,
-Colorado,colorado,5 business days for mechanic's lien,,,,
-Connecticut,connecticut,N/A,6 months,18 months,Conn. Gen. Stat. § 49-33 et seq.,https://www.cga.ct.gov/current/pub/chap_847.htm
-Delaware,delaware,60 days from first furnishing,,,,
-Florida,florida,45 days from first furnishing,90 days,1 year,Fla. Stat. ch. 713,https://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0700-0799/0713/0713.html
-Georgia,georgia,N/A,90 days,90 days,,
-Hawaii,hawaii,45 days from first furnishing,,,,
-Idaho,idaho,N/A,,,,
-Illinois,illinois,90 days from last furnishing,4 months,6 months,,
-Indiana,indiana,60 days from first furnishing,,,,
-Iowa,iowa,10 days before lien filing,,,,
-Kansas,kansas,N/A,1 year+,2 years,K.S.A. § 60-1101 et seq.,https://www.ksrevisor.org/statutes/chapters/ch60/060_011_0001.html
-Kentucky,kentucky,N/A,1 year+,2 years,,
-Louisiana,louisiana,30 days from registration,,,,
-Maine,maine,N/A,1 year+,,10 M.R.S. § 3251 et seq.,https://legislature.maine.gov/statutes/10/title10ch603sec0.html
-Maryland,maryland,120 days from last furnishing,,,,
-Massachusetts,massachusetts,N/A,6 months,6 months,,
-Michigan,michigan,N/A,6 months,6 months,,
-Minnesota,minnesota,10 days before lien filing,,1 year,Minn. Stat. ch. 514,https://www.revisor.mn.gov/statutes/cite/514
-Mississippi,mississippi,N/A,,,,
-Missouri,missouri,5 months from last furnishing,4 months,2 years,Mo. Rev. Stat. ch. 429,https://revisor.mo.gov/main/OneChapter.aspx?chapter=429
-Montana,montana,N/A,,,Mont. Code § 71-3-521 et seq.,https://archive.legmt.gov/bills/mca/title_0710/chapter_0030/part_0050/sections_index.html
-Nebraska,nebraska,10 days before lien filing,1 year+,18 months,,
-Nevada,nevada,30 days from first furnishing,90 days,,,
-New Hampshire,new-hampshire,N/A,,,,
-New Jersey,new-jersey,By lien filing date,1 year+,6 months,,
-New Mexico,new-mexico,N/A,,,,
-New York,new-york,N/A,8 months,2 years,N.Y. Lien Law art. 2,https://www.nysenate.gov/legislation/laws/LIE/A2
-North Carolina,north-carolina,30 days from first furnishing,90 days,1 year,,
-North Dakota,north-dakota,N/A,,,,
-Ohio,ohio,21 days from first furnishing,90 days,1 year,,
-Oklahoma,oklahoma,N/A,90 days,,,
-Oregon,oregon,8 days from first furnishing,30 days after written demand,,,
-Pennsylvania,pennsylvania,90 days from last furnishing,6 months,1 year,,
-Rhode Island,rhode-island,N/A,,,,
-South Carolina,south-carolina,30 days from first furnishing,90 days,,S.C. Code § 29-5-10 et seq.,https://www.scstatehouse.gov/code/t29c005.php
-South Dakota,south-dakota,N/A,,,,
-Tennessee,tennessee,60 days from last furnishing,,,,
-Texas,texas,15th of 3rd month,15th of 4th month,2 years,Tex. Prop. Code ch. 53,https://statutes.capitol.texas.gov/Docs/PR/htm/PR.53.htm
-Utah,utah,20 days from first furnishing,90 days,,,
-Vermont,vermont,N/A,1 year+,,9 V.S.A. § 1921 et seq.,https://legislature.vermont.gov/statutes/chapter/09/051
-Virginia,virginia,30 days from first furnishing,90 days,,Va. Code § 43-1 et seq.,https://law.lis.virginia.gov/vacodefull/title43/chapter1/
-Washington,washington,10 days from first furnishing,30/60 days,,RCW ch. 60.04,https://app.leg.wa.gov/RCW/default.aspx?cite=60.04
-Washington DC,washington-dc,45 days from first furnishing,,,,
-West Virginia,west-virginia,N/A,90 days,,,
-Wisconsin,wisconsin,60 days from first furnishing,90 days,1 year,,
-Wyoming,wyoming,N/A,,,,
+Alabama,alabama,N/A,6 months from last furnishing,6 months after filing,Ala. Code § 35-11-210 et seq.,https://alison.legislature.state.al.us/code-of-alabama
+Alaska,alaska,15 days from first furnishing,120 days from last furnishing,6 months after filing,Alaska Stat. § 34.35.005 et seq.,https://www.akleg.gov/statutes/Title34/Chapter35/
+Arizona,arizona,20 days from first furnishing,120 days after completion (60 days if no NOO),6 months after filing,A.R.S. § 33-981 et seq.,https://www.azleg.gov/arsDetail/?title=33
+Arkansas,arkansas,75 days from last furnishing (residential),120 days from last furnishing,15 months after filing,Ark. Code § 18-44-101 et seq.,https://codes.findlaw.com/ar/title-18-property/ar-code-sect-18-44-101/
+California,california,20 days from first furnishing,90 days after completion,90 days after filing,Cal. Civ. Code § 8000 et seq.,https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?division=2.&lawCode=CIV&title=8.
+Colorado,colorado,N/A,4 months from last furnishing,6 months after filing,Colo. Rev. Stat. § 38-22-101 et seq.,https://leg.colorado.gov/sites/default/files/2021-09/title-38.pdf
+Connecticut,connecticut,N/A,90 days from last furnishing,1 year after filing,Conn. Gen. Stat. § 49-33 et seq.,https://www.cga.ct.gov/current/pub/chap_847.htm
+Delaware,delaware,N/A,180 days from last furnishing,1 year after filing,Del. Code tit. 6 § 2701 et seq.,https://delcode.delaware.gov/title6/c027/
+Florida,florida,45 days from first furnishing (Notice to Owner),90 days from last furnishing,1 year after filing,Fla. Stat. ch. 713,https://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0700-0799/0713/0713.html
+Georgia,georgia,N/A,90 days from last furnishing,365 days after filing,O.C.G.A. § 44-14-361 et seq.,https://law.justia.com/codes/georgia/title-44/chapter-14/article-3/part-1/
+Hawaii,hawaii,N/A,45 days from last furnishing,3 months after filing,Haw. Rev. Stat. § 507-41 et seq.,https://www.capitol.hawaii.gov/hrscurrent/Vol11_Ch0501-0588/HRS0507/HRS_0507-0041.htm
+Idaho,idaho,N/A,90 days from last furnishing,6 months after filing,Idaho Code § 45-501 et seq.,https://legislature.idaho.gov/statutesrules/idstat/title45/t45ch5/
+Illinois,illinois,60 days from last furnishing (subcontractors),4 months from last furnishing,2 years after filing,770 ILCS 60/1 et seq.,https://www.ilga.gov/legislation/ilcs/ilcs3.asp?ActID=2812&ChapterID=50
+Indiana,indiana,30 days from first furnishing (residential),90 days from last furnishing (60 days for residential),1 year after filing,Ind. Code § 32-28-3-1 et seq.,https://iga.in.gov/legislative/laws/2024/ic/titles/032#32-28-3
+Iowa,iowa,N/A,90 days from last furnishing,2 years after filing,Iowa Code § 572.1 et seq.,https://www.legis.iowa.gov/docs/code/572.pdf
+Kansas,kansas,N/A,4 months from last furnishing (3 months for residential),1 year after filing,K.S.A. § 60-1101 et seq.,https://www.ksrevisor.org/statutes/chapters/ch60/060_011_0001.html
+Kentucky,kentucky,75 days from last furnishing (residential),6 months from last furnishing,1 year after filing,Ky. Rev. Stat. § 376.010 et seq.,https://apps.legislature.ky.gov/law/statutes/chapter.aspx?id=39198
+Louisiana,louisiana,N/A,60 days from last furnishing (30 days if NOO filed),1 year after filing,La. R.S. 9:4801 et seq.,https://www.legis.la.gov/legis/Law.aspx?d=292868
+Maine,maine,N/A,90 days from last furnishing,120 days after filing,10 M.R.S. § 3251 et seq.,https://legislature.maine.gov/statutes/10/title10ch603sec0.html
+Maryland,maryland,120 days from last furnishing (residential),180 days from last furnishing,1 year after filing,"Md. Code, Real Prop. § 9-101 et seq.",https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=grp&section=9-101&enactments=
+Massachusetts,massachusetts,N/A,90 days from last furnishing (subcontractors: 60 days after NOF),90 days after filing,Mass. Gen. Laws ch. 254 § 2 et seq.,https://malegislature.gov/Laws/GeneralLaws/PartIII/TitleI/Chapter254
+Michigan,michigan,20 days from first furnishing (residential),90 days from last furnishing,1 year after filing,Mich. Comp. Laws § 570.1101 et seq.,http://www.legislature.mi.gov/(S(epgkb0mr4ps14adnqkfvlfhb))/mileg.aspx?page=GetObject&objectname=mcl-act-497-of-1980
+Minnesota,minnesota,45 days from first furnishing (residential),120 days from last furnishing,1 year after filing,Minn. Stat. ch. 514,https://www.revisor.mn.gov/statutes/cite/514
+Mississippi,mississippi,N/A,"12 months from last furnishing (commercial), 90 days (residential)",1 year after filing,Miss. Code § 85-7-181 et seq.,https://codes.findlaw.com/ms/title-85-trusts-and-trustees/ms-code-sect-85-7-181/
+Missouri,missouri,5 days before filing (residential),6 months from last furnishing,6 months after filing,Mo. Rev. Stat. ch. 429,https://revisor.mo.gov/main/OneChapter.aspx?chapter=429
+Montana,montana,20 days from first furnishing (residential),90 days from last furnishing,2 years after filing,Mont. Code § 71-3-521 et seq.,https://archive.legmt.gov/bills/mca/title_0710/chapter_0030/part_0050/sections_index.html
+Nebraska,nebraska,N/A,120 days from last furnishing,2 years after filing,Neb. Rev. Stat. § 52-121 et seq.,https://nebraskalegislature.gov/laws/statutes.php?statute=52-121
+Nevada,nevada,45 days from first furnishing (residential),90 days from last furnishing,6 months after filing,Nev. Rev. Stat. § 108.221 et seq.,https://www.leg.state.nv.us/NRS/NRS-108.html
+New Hampshire,new-hampshire,N/A,120 days from last furnishing,120 days after filing,N.H. Rev. Stat. § 447:1 et seq.,https://www.gencourt.state.nh.us/rsa/html/447/447-1.htm
+New Jersey,new-jersey,60 days from last furnishing (residential),90 days from last furnishing (120 days for residential),1 year after filing,N.J. Stat. § 2A:44A-1 et seq.,https://lis.njleg.state.nj.us/nxt/gateway.dll?f=templates&fn=default.htm&vid=Publish:10.1048/Enu
+New Mexico,new-mexico,60 days from first furnishing (commercial),120 days from last furnishing,2 years after filing,N.M. Stat. § 48-2-1 et seq.,https://nmonesource.com/nmos/enus/Statutes/NMSA1978/NMSA1978-048-002/NMSA1978-048-002-1
+New York,new-york,N/A,8 months from last furnishing (commercial),1 year after filing,N.Y. Lien Law art. 2,https://www.nysenate.gov/legislation/laws/LIE/A2
+North Carolina,north-carolina,15 days from first furnishing (subcontractors),120 days from last furnishing,180 days after filing,N.C. Gen. Stat. § 44A-1 et seq.,https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByChapter/Chapter_44A.html
+North Dakota,north-dakota,N/A,90 days from last furnishing,3 years after filing,N.D. Cent. Code § 35-27-01 et seq.,https://www.legis.nd.gov/cencode/t35c27.pdf
+Ohio,ohio,21 days from first furnishing (residential),75 days from last furnishing (60 days residential),6 years after filing,Ohio Rev. Code § 1311.01 et seq.,https://codes.ohio.gov/ohio-revised-code/chapter-1311
+Oklahoma,oklahoma,75 days from last furnishing (residential),4 months from last furnishing,1 year after filing,Okla. Stat. tit. 42 § 141 et seq.,https://www.oscn.net/applications/oscn/index.asp?ftdb=ST42ST141&level=1
+Oregon,oregon,8 days before first furnishing (residential),75 days from last furnishing,120 days after filing,Or. Rev. Stat. § 87.005 et seq.,https://www.oregonlegislature.gov/bills_laws/ors/ors087.html
+Pennsylvania,pennsylvania,30 days from first furnishing (subcontractors),6 months from last furnishing,2 years after filing,49 Pa. Stat. § 1101 et seq.,https://www.legis.state.pa.us/cfdocs/legis/LI/consCheck.cfm?txtType=HTM&ttl=49&div=0&chpt=11
+Rhode Island,rhode-island,N/A,200 days from last furnishing,40 days after notice,R.I. Gen. Laws § 34-28-1 et seq.,http://webserver.rilin.state.ri.us/Statutes/TITLE34/34-28/INDEX.HTM
+South Carolina,south-carolina,15 days before first furnishing (residential),90 days from last furnishing,6 months after filing,S.C. Code § 29-5-10 et seq.,https://www.scstatehouse.gov/code/t29c005.php
+South Dakota,south-dakota,N/A,120 days from last furnishing,1 year after filing,S.D. Codified Laws § 44-9-1 et seq.,https://sdlegislature.gov/Statutes/Codified_Laws/DisplayStatute.aspx?Type=Statute&Statute=44-9-1
+Tennessee,tennessee,N/A,90 days from last furnishing,1 year after filing,Tenn. Code § 66-11-101 et seq.,https://law.justia.com/codes/tennessee/title-66/chapter-11/part-1/section-66-11-101/
+Texas,texas,15th day of 2nd month after work (residential),15th day of 4th month from last furnishing,1 year after filing (2 years for residential),Tex. Prop. Code ch. 53,https://statutes.capitol.texas.gov/Docs/PR/htm/PR.53.htm
+Utah,utah,20 days from first furnishing,180 days after completion of original contract,180 days after filing,Utah Code § 38-1a-101 et seq.,https://le.utah.gov/xcode/Title38/Chapter1A/38-1a.html
+Vermont,vermont,N/A,180 days from last furnishing,1 year after filing,9 V.S.A. § 1921 et seq.,https://legislature.vermont.gov/statutes/chapter/09/051
+Virginia,virginia,30 days from first furnishing (residential),90 days from last furnishing,6 months after filing,Va. Code § 43-1 et seq.,https://law.lis.virginia.gov/vacodefull/title43/chapter1/
+Washington,washington,10 days before first furnishing (residential),90 days from last furnishing,8 months after filing,RCW ch. 60.04,https://app.leg.wa.gov/RCW/default.aspx?cite=60.04
+Washington DC,washington-dc,N/A,90 days from last furnishing,180 days after filing,,
+West Virginia,west-virginia,N/A,100 days from last furnishing,6 months after filing,W. Va. Code § 38-2-1 et seq.,http://www.wvlegislature.gov/wvcode/code.cfm?chap=38&art=2
+Wisconsin,wisconsin,60 days from first furnishing (residential),6 months from last furnishing,2 years after filing,Wis. Stat. § 779.01 et seq.,https://docs.legis.wisconsin.gov/statutes/statutes/779
+Wyoming,wyoming,30 days from first furnishing (commercial),120 days from last furnishing (commercial),180 days after filing,Wyo. Stat. § 29-1-301 et seq.,https://www.wyoleg.gov/statutes/title29
